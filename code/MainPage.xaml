@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Prolog" 
+             x:Class="Prolog.MainPage">
+
+    <Grid x:Name="grid" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <StackLayout Grid.Row="0" BackgroundColor="Gray" 
+                     Padding="0,0,0,1" HeightRequest="50">
+            <StackLayout BackgroundColor="White" HeightRequest="50">
+                <Label Text="Prolog Interpreter Demo" 
+                       Grid.Row="0" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!-- Buttons to control the App -->
+        <StackLayout Grid.Row="1" Padding="0,0,0,1" BackgroundColor="Gray">
+            <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                <Button x:Name="Button1"
+                    Text="Button" Clicked="Button01"
+                    WidthRequest="60" HeightRequest="25"
+                    BorderWidth="1" Margin="3,3,0,3"/>
+                <Button x:Name="Button2"
+                    Text="Button" Clicked="Button02"
+                    WidthRequest="60" HeightRequest="25"
+                    BorderWidth="1" Margin="-3,3,0,3"/>            
+                <Button x:Name="Button3"
+                    Text="Button" Clicked="Button03"
+                    WidthRequest="60" HeightRequest="25"
+                    BorderWidth="1" Margin="-3,3,0,3"/>
+                <Label x:Name="StatusLabel" Text="Status Label" FontSize="14" 
+                   HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+
+
+        <!-- Command Prompt Console -->
+        <ScrollView x:Name="ConsoleBack" Grid.Row="2" BackgroundColor="Gray" 
+                    Padding="0" VerticalOptions="FillAndExpand" Scrolled="ConsoleBackScrolled">
+             
+            <StackLayout x:Name="Console" BackgroundColor="White" Spacing="0"
+                         SizeChanged="GetConsoleSize">
+                <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapConsole"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+        </ScrollView>
+
+        
+        <!-- File Editor -->
+        <Grid x:Name="FileEditorGrid" Grid.Row="2" BackgroundColor="Gray" IsVisible="false" 
+                          Padding="1" RowSpacing="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Title of this PopUp Menu-->
+            <Label x:Name="FileEditorTitle" BackgroundColor="White"
+                                Grid.Row="0" Grid.Column="0"/>
+
+            <!-- File Editor -->
+            <Editor x:Name="FileEditor" BackgroundColor="White"
+                    VerticalOptions="FillAndExpand" Keyboard="Plain"
+                                Grid.Row="1" Grid.Column="0"/>
+
+            <!-- Button for Save File and Cancel -->
+            <StackLayout BackgroundColor="White" Grid.Row="2" Grid.Column="0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                    
+                    <Button Text="Save&amp;Exit" TextColor="Black" Clicked="SaveExitFile" HeightRequest="20"
+                                        BackgroundColor="White" BorderWidth="1" />
+                    <Button Text="Save" TextColor="Black" Clicked="SaveFile" HeightRequest="20"
+                                        BackgroundColor="White" BorderWidth="1" />
+                    <Button Text="Cancel" TextColor="Black" Clicked="CancelEditor" HeightRequest="20"
+                                        BackgroundColor="White" BorderWidth="1" />
+                    
+                </StackLayout>
+
+            </StackLayout>
+        </Grid>
+
+        <!-- Monitor some variables for Debug -->
+        <StackLayout x:Name="Debug" Grid.Row="3"
+                     BackgroundColor="Gray" Padding="0,1,0,0">
+            <StackLayout BackgroundColor="White">
+                <Label x:Name="Label1" FontSize="14" Text=" " Margin="0,0,0,-6"/>
+                <Label x:Name="Label2" FontSize="14" Text=" " Margin="0,0,0,-6"/>
+                <Label x:Name="Label3" FontSize="14" Text=" "/>
+            </StackLayout>
+        </StackLayout>
+
+    </Grid>
+
+</ContentPage>
+
