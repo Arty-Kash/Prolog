@@ -6,6 +6,6 @@ Please visit the following site, if you want to know more.
 
 English: http://fightwithprogramming.blogspot.com/2020/03/prolog-interpreter.html
 
-Japanese: 
+Japanese: https://fightwithprogramming.wordpress.com/2020/03/28/prologインタプリタ/
 
 [Keywords] Xamarin.Forms, Prolog
