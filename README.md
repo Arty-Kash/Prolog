@@ -4,7 +4,7 @@ This is a Xamarin.Forms sample program to emulate Prolog interpreter.  In this i
 Please visit the following site, if you want to know more.
 
 
-English: 
+English: http://fightwithprogramming.blogspot.com/2020/03/prolog-interpreter.html
 
 Japanese: 
 
